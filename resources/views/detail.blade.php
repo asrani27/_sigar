@@ -107,11 +107,17 @@
 
 
 <script>
-    var map = L.map('mapid').setView([-3.327653847548605,114.5884147286779], 16);
+    var lokasi = {!! json_encode($data) !!};
+    console.log(lokasi);
+
+    var map = L.map('mapid').setView([lokasi.lat, lokasi.long], 16);
     googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
         maxZoom: 20,
         subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
-    var marker = L.marker([51.5, -0.09]).addTo(map);
+    var marker = L.marker([lokasi.lat, lokasi.long]).addTo(map);
+    L.marker([lokasi.lat, lokasi.long]).addTo(map)
+    .bindPopup(lokasi.nama_bangunan)
+    .openPopup();
 </script>
 @endpush
