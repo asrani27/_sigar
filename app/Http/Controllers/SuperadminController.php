@@ -53,6 +53,16 @@ class SuperadminController extends Controller
         Session::flash('success', 'Berhasil Dihapus');
         return redirect('/superadmin/ritel');
     }
+    public function foto_ritel(Request $request)
+    {
+        $request->validate([
+            'foto' => 'required|image|max:5120', // max 5MB
+        ]);
+
+        $path = $request->file('foto')->store('public/foto-bangunan');
+
+        return back()->with('success', 'Foto berhasil diupload: ' . $path);
+    }
     public function gudang()
     {
         $data = Bangunan::where('tipe', 'gudang')->orderBy('id', 'DESC')->get();
