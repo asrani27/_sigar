@@ -121,6 +121,8 @@
                         Take A Photo
                     </button>
                 </form>
+
+                <img src="/storage/foto-bangunan/{{$data->gambar}}" width="50%">
             </div>
         </div>
     </div>
