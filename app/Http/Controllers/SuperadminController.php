@@ -59,7 +59,7 @@ class SuperadminController extends Controller
             'foto' => 'required|image|max:5120', // max 5MB
         ]);
 
-        $path = $request->file('foto')->store('public/foto-bangunan');
+        $path = $request->file('foto')->store('public/foto-bangunan', 'public');
 
         return back()->with('success', 'Foto berhasil diupload: ' . $path);
     }
