@@ -59,10 +59,6 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="exampleInputEmail1">Kecamatan</label>
-                        <input type="text" class="form-control" name="kecamatan">
-                    </div> --}}
                     <div class="form-group">
                         <label>Peruntukan</label>
                         <input type="text" class="form-control" name="peruntukan">
@@ -151,26 +147,44 @@
 
 <script>
     var map = L.map('mapid').setView([-3.327653847548605,114.5884147286779], 16);
-    googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3']
-    }).addTo(map);
-  
-    //L.marker([-3.327653847548605,114.5884147286779]).addTo(map);  
 
-    var theMarker = {};
-    
+    googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    }).addTo(map);
+
+    var theMarker;
+
+    // Fungsi jika user klik di peta
     map.on('click', function(e) {
-        
-        document.getElementById("lat").value = e.latlng.lat;
-        document.getElementById("long").value = e.latlng.lng;
-        
-        if (theMarker != undefined) {
-            map.removeLayer(theMarker);
-        };
-        
-        theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
+        updateMarker(e.latlng.lat, e.latlng.lng);
     });
-    
+
+    // Fungsi untuk set marker dan input value
+    function updateMarker(lat, lng) {
+        document.getElementById("lat").value = lat;
+        document.getElementById("long").value = lng;
+
+        if (theMarker) {
+            map.removeLayer(theMarker);
+        }
+
+        theMarker = L.marker([lat, lng]).addTo(map);
+        map.setView([lat, lng], 16);
+    }
+
+    // Deteksi lokasi saat halaman dibuka
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            updateMarker(lat, lng);
+        }, function(error) {
+            console.warn("Gagal mendapatkan lokasi:", error.message);
+        });
+    } else {
+        alert("Geolocation tidak didukung browser ini.");
+    }
 </script>
+
 @endpush
