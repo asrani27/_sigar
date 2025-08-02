@@ -67,6 +67,20 @@ class SuperadminController extends Controller
 
         return back()->with('success', 'Foto berhasil diupload: ' . $path);
     }
+    public function foto_gudang(Request $request, $id)
+    {
+        $request->validate([
+            'foto' => 'required|image|max:5120', // max 5MB
+        ]);
+
+        $path = $request->file('foto')->store('foto-bangunan', 'public');
+        $filename = basename($path);
+        Bangunan::find($id)->update([
+            'gambar' => $filename,
+        ]);
+
+        return back()->with('success', 'Foto berhasil diupload: ' . $path);
+    }
     public function gudang()
     {
         $data = Bangunan::where('tipe', 'gudang')->orderBy('id', 'DESC')->get();

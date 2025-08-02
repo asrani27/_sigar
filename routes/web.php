@@ -70,6 +70,7 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin/ritel/delete/{id}', [SuperadminController::class, 'delete_ritel']);
     Route::get('/superadmin/gudang', [SuperadminController::class, 'gudang']);
     Route::get('/superadmin/gudang/add', [SuperadminController::class, 'add_gudang']);
+    Route::post('/superadmin/gudang/foto/{id}', [SuperadminController::class, 'foto_gudang']);
     Route::post('/superadmin/gudang/add', [SuperadminController::class, 'store_gudang']);
     Route::get('/superadmin/gudang/edit/{id}', [SuperadminController::class, 'edit_gudang']);
     Route::post('/superadmin/gudang/edit/{id}', [SuperadminController::class, 'update_gudang']);

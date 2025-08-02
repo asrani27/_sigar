@@ -96,14 +96,7 @@
         </div>
 
     </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Upload Foto Bangunan</h3>
-            </div>
-        </div>
 
-    </div>
     <!-- /.col -->
 </div>
 @endsection

@@ -109,8 +109,21 @@
             <div class="card-header">
                 <h3 class="card-title">Upload Foto Bangunan</h3>
             </div>
-        </div>
+            <div class="card-body text-center">
+                <form action="/superadmin/gudang/foto/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="foto" accept="image/*" capture="environment" onchange="this.form.submit()"
+                        style="display:none;" id="takePhotoInput">
 
+                    <button type="button" class="btn btn-primary"
+                        onclick="document.getElementById('takePhotoInput').click()">
+                        Take A Photo
+                    </button>
+                </form>
+
+                <img src="/storage/foto-bangunan/{{$data->gambar}}" width="100%" height="250px">
+            </div>
+        </div>
     </div>
     <!-- /.col -->
 </div>
