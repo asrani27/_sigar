@@ -110,8 +110,7 @@
             <div class="card-header">
                 <h3 class="card-title">Upload Foto Bangunan</h3>
             </div>
-            <div class="card-body text-center"
-                style="background-image: url('{{ asset('storage/foto-bangunan/' . $data->gambar) }}'); background-size:cover;height:50%">
+            <div class="card-body text-center">
                 <form action="/superadmin/ritel/foto/{{$data->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="foto" accept="image/*" capture="environment" onchange="this.form.submit()"
@@ -123,7 +122,7 @@
                     </button>
                 </form>
 
-                {{-- <img src="/storage/foto-bangunan/{{$data->gambar}}" width="50%" height="50%"> --}}
+                <img src="/storage/foto-bangunan/{{$data->gambar}}" width="100%" height="250px">
             </div>
         </div>
     </div>
