@@ -64,6 +64,7 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin/ritel', [SuperadminController::class, 'ritel']);
     Route::get('/superadmin/ritel/add', [SuperadminController::class, 'add_ritel']);
     Route::post('/superadmin/ritel/add', [SuperadminController::class, 'store_ritel']);
+    Route::post('/superadmin/ritel/foto', [SuperadminController::class, 'foto_ritel']);
     Route::get('/superadmin/ritel/edit/{id}', [SuperadminController::class, 'edit_ritel']);
     Route::post('/superadmin/ritel/edit/{id}', [SuperadminController::class, 'update_ritel']);
     Route::get('/superadmin/ritel/delete/{id}', [SuperadminController::class, 'delete_ritel']);
