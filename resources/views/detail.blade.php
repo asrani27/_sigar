@@ -91,7 +91,7 @@
     <!-- /.col -->
     <div class="col-md-4">
         <div class="card"
-            style="background-image: url('/assets/dist/img/photo1.png'); background-size:cover;height:50%">
+            style="background-image: url('{{ asset('storage/foto-bangunan/' . $data->gambar) }}'); background-size:cover;height:50%">
 
         </div>
         <!-- /.card -->
