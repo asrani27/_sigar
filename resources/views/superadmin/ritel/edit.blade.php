@@ -104,14 +104,27 @@
         </div>
 
     </div>
+
     <div class="col-md-4">
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Upload Foto Bangunan</h3>
             </div>
-        </div>
+            <div class="card-body text-center">
+                <form action="/superadmin/ritel/foto/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="foto" accept="image/*" capture="environment" onchange="this.form.submit()"
+                        style="display:none;" id="takePhotoInput">
 
+                    <button type="button" class="btn btn-primary"
+                        onclick="document.getElementById('takePhotoInput').click()">
+                        Take A Photo
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
+
     <!-- /.col -->
 </div>
 @endsection
