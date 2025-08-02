@@ -122,7 +122,7 @@
                     </button>
                 </form>
 
-                <img src="/storage/foto-bangunan/{{$data->gambar}}" width="50%">
+                <img src="/storage/foto-bangunan/{{$data->gambar}}" width="50%" height="50%">
             </div>
         </div>
     </div>
