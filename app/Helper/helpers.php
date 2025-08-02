@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use App\Models\Skpd;
 use App\Models\Bangunan;
+use App\Models\Kelurahan;
 
 function totalgudang()
 {
@@ -60,7 +61,7 @@ function bulan()
 
     return $namaBulan;
 }
-function skpd()
+function kelurahan()
 {
-    return Skpd::get();
+    return Kelurahan::get();
 }

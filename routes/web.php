@@ -27,6 +27,8 @@ use App\Http\Controllers\AdminRevisiController;
 use App\Http\Controllers\AdminDeviasiController;
 use App\Http\Controllers\AdminPenyerapanController;
 use App\Http\Controllers\BangunanController;
+use App\Http\Controllers\SuperadminController;
+use App\Http\Middleware\Superadmin;
 
 Route::get('/', [LoginController::class, 'welcome']);
 Route::get('/ritel', [BangunanController::class, 'ritel']);
@@ -59,52 +61,19 @@ Route::middleware(['auth', 'user'])->group(function () {
 
 Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin', [HomeController::class, 'superadmin']);
-    Route::get('/superadmin/pengaduan', [PengaduanController::class, 'index']);
-    Route::get('/superadmin/laporan', [LaporanController::class, 'index']);
-
-    Route::get('/superadmin/laporan/bulan', [LaporanController::class, 'bulan']);
-    Route::get('/superadmin/petugas', [PetugasController::class, 'index']);
-    Route::get('/superadmin/petugas/add', [PetugasController::class, 'add']);
-    Route::post('/superadmin/petugas/add', [PetugasController::class, 'store']);
-    Route::get('/superadmin/petugas/edit/{id}', [PetugasController::class, 'edit']);
-    Route::post('/superadmin/petugas/edit/{id}', [PetugasController::class, 'update']);
-    Route::get('/superadmin/petugas/delete/{id}', [PetugasController::class, 'delete']);
-
-    Route::get('/superadmin/tksk', [TkskController::class, 'index']);
-    Route::get('/superadmin/tksk/add', [TkskController::class, 'add']);
-    Route::post('/superadmin/tksk/add', [TkskController::class, 'store']);
-    Route::get('/superadmin/tksk/edit/{id}', [TkskController::class, 'edit']);
-    Route::post('/superadmin/tksk/edit/{id}', [TkskController::class, 'update']);
-    Route::get('/superadmin/tksk/delete/{id}', [TkskController::class, 'delete']);
-
-    Route::get('/superadmin/pangan', [PanganController::class, 'index']);
-    Route::get('/superadmin/pangan/add', [PanganController::class, 'add']);
-    Route::post('/superadmin/pangan/add', [PanganController::class, 'store']);
-    Route::get('/superadmin/pangan/edit/{id}', [PanganController::class, 'edit']);
-    Route::post('/superadmin/pangan/edit/{id}', [PanganController::class, 'update']);
-    Route::get('/superadmin/pangan/delete/{id}', [PanganController::class, 'delete']);
-
-
-    Route::get('/superadmin/distribusi', [DistribusiController::class, 'index']);
-    Route::get('/superadmin/distribusi/add', [DistribusiController::class, 'add']);
-    Route::post('/superadmin/distribusi/add', [DistribusiController::class, 'store']);
-    Route::get('/superadmin/distribusi/edit/{id}', [DistribusiController::class, 'edit']);
-    Route::post('/superadmin/distribusi/edit/{id}', [DistribusiController::class, 'update']);
-    Route::get('/superadmin/distribusi/delete/{id}', [DistribusiController::class, 'delete']);
-
-    Route::get('/superadmin/verifikasi', [VerifikasiController::class, 'index']);
-    Route::get('/superadmin/verifikasi/add', [VerifikasiController::class, 'add']);
-    Route::post('/superadmin/verifikasi/add', [VerifikasiController::class, 'store']);
-    Route::get('/superadmin/verifikasi/edit/{id}', [VerifikasiController::class, 'edit']);
-    Route::post('/superadmin/verifikasi/edit/{id}', [VerifikasiController::class, 'update']);
-    Route::get('/superadmin/verifikasi/delete/{id}', [VerifikasiController::class, 'delete']);
-
-    Route::get('/superadmin/penerima', [PenerimaController::class, 'index']);
-    Route::get('/superadmin/penerima/add', [PenerimaController::class, 'add']);
-    Route::post('/superadmin/penerima/add', [PenerimaController::class, 'store']);
-    Route::get('/superadmin/penerima/edit/{id}', [PenerimaController::class, 'edit']);
-    Route::post('/superadmin/penerima/edit/{id}', [PenerimaController::class, 'update']);
-    Route::get('/superadmin/penerima/delete/{id}', [PenerimaController::class, 'delete']);
+    Route::get('/superadmin/ritel', [SuperadminController::class, 'ritel']);
+    Route::get('/superadmin/ritel/add', [SuperadminController::class, 'add_ritel']);
+    Route::post('/superadmin/ritel/add', [SuperadminController::class, 'store_ritel']);
+    Route::get('/superadmin/ritel/edit/{id}', [SuperadminController::class, 'edit_ritel']);
+    Route::post('/superadmin/ritel/edit/{id}', [SuperadminController::class, 'update_ritel']);
+    Route::get('/superadmin/ritel/delete/{id}', [SuperadminController::class, 'delete_ritel']);
+    Route::get('/superadmin/gudang', [SuperadminController::class, 'gudang']);
+    Route::get('/superadmin/gudang/add', [SuperadminController::class, 'add_gudang']);
+    Route::post('/superadmin/gudang/add', [SuperadminController::class, 'store_gudang']);
+    Route::get('/superadmin/gudang/edit/{id}', [SuperadminController::class, 'edit_gudang']);
+    Route::post('/superadmin/gudang/edit/{id}', [SuperadminController::class, 'update_gudang']);
+    Route::get('/superadmin/gudang/delete/{id}', [SuperadminController::class, 'delete_gudang']);
+    Route::get('/superadmin/detail/{id}', [SuperadminController::class, 'detail']);
 });
 Route::get('/logout', function () {
     Auth::logout();

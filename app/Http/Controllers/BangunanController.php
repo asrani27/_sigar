@@ -9,7 +9,7 @@ class BangunanController extends Controller
 {
     public function ritel()
     {
-        $data = Bangunan::where('tipe', 'ritel')->get();
+        $data = Bangunan::where('tipe', 'ritel')->orderBy('id', 'DESC')->get();
         return view('ritel', compact('data'));
     }
     public function detail($id)
@@ -19,7 +19,7 @@ class BangunanController extends Controller
     }
     public function gudang()
     {
-        $data = Bangunan::where('tipe', 'gudang')->get();
+        $data = Bangunan::where('tipe', 'gudang')->orderBy('id', 'DESC')->get();
         return view('gudang', compact('data'));
     }
     public function ritel_kecamatan($kecamatan)
