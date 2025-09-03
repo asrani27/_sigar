@@ -137,7 +137,7 @@ class SuperadminController extends Controller
     public function pdf_ritel()
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_ritel.pdf';
-        $data = Bangunan::orderBy('id', 'DESC')->get();
+        $data = Bangunan::where('tipe', 'ritel')->orderBy('id', 'DESC')->get();
         $pdf = Pdf::loadView('pdf.ritel', compact('data'))->setOption([
             'enable_remote' => true,
         ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -146,7 +146,7 @@ class SuperadminController extends Controller
     public function pdf_gudang()
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_gudang.pdf';
-        $data = Bangunan::orderBy('id', 'DESC')->get();
+        $data = Bangunan::where('tipe', 'gudang')->orderBy('id', 'DESC')->get();
         $pdf = Pdf::loadView('pdf.gudang', compact('data'))->setOption([
             'enable_remote' => true,
         ])->setPaper([0, 0, 800, 1100], 'landscape');
