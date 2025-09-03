@@ -10,7 +10,10 @@
 <div class="row">
     <div class="col-12">
 
-        <a href="/superadmin/gudang/add" class="btn btn-md btn-primary">TAMBAH DATA</a><br /><br />
+        <a href="/superadmin/gudang/add" class="btn btn-md btn-primary">TAMBAH DATA</a>
+
+        <a href="/superadmin/gudang/pdf" class="btn btn-md btn-danger">EXPORT PDF</a>
+        <br /><br />
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Data Gudang</h3>

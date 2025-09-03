@@ -61,6 +61,8 @@ Route::middleware(['auth', 'user'])->group(function () {
 
 Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin', [HomeController::class, 'superadmin']);
+    Route::get('/superadmin/ritel/pdf', [SuperadminController::class, 'pdf_ritel']);
+    Route::get('/superadmin/gudang/pdf', [SuperadminController::class, 'pdf_gudang']);
     Route::get('/superadmin/ritel', [SuperadminController::class, 'ritel']);
     Route::get('/superadmin/ritel/add', [SuperadminController::class, 'add_ritel']);
     Route::post('/superadmin/ritel/add', [SuperadminController::class, 'store_ritel']);
