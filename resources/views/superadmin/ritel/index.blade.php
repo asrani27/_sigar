@@ -11,7 +11,7 @@
     <div class="col-12">
         <a href="/superadmin/ritel/add" class="btn btn-md btn-primary">TAMBAH DATA</a>
 
-        <a href="/superadmin/ritel/pdf" class="btn btn-md btn-danger">EXPORT PDF</a>
+        <a href="/superadmin/ritel/pdf" target="_blank" class="btn btn-md btn-danger">EXPORT PDF</a>
         <br /><br />
         <div class="card">
             <div class="card-header">

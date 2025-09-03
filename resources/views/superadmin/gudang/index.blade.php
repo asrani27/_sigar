@@ -12,7 +12,7 @@
 
         <a href="/superadmin/gudang/add" class="btn btn-md btn-primary">TAMBAH DATA</a>
 
-        <a href="/superadmin/gudang/pdf" class="btn btn-md btn-danger">EXPORT PDF</a>
+        <a href="/superadmin/gudang/pdf" target="_blank" class="btn btn-md btn-danger">EXPORT PDF</a>
         <br /><br />
         <div class="card">
             <div class="card-header">
